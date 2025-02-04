@@ -41,6 +41,9 @@ public class Sous
         }
     }
 
+    /**
+    *Funció perllegir doubles de manera segura
+    */
     public static double llegirDouble(Scanner scanner, String s) {
             double numero;
             while(true){
