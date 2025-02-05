@@ -20,13 +20,13 @@ public class Sous
         double vendes = llegirDouble(input,"Introdueix les vendes:");
         double perc = llegirDouble(input,"Introdueix el percentatge de commissió:");
         double bonus = llegirDouble(input,"Introdueix el bonus per quinqueni:");
-        int anyInici = llegitInt(input,"Introdueix l'any d'inici del treballador:");
-        int anyActual = llegitInt(input,"Introdueix l'any actual:");
+        int anyInici = llegirInt(input,"Introdueix l'any d'inici del treballador:");
+        int anyActual = llegirInt(input,"Introdueix l'any actual:",anyInici+1,3000);
         double sou = sous(fix,vendes,perc,bonus,anyInici,anyActual);
         System.out.println("El sou del treballador es: " + sou + "€");
         }
 
-    public static int llegitInt(Scanner scanner, String s) {
+    public static int llegirInt(Scanner scanner, String s) {
         int numero;
         while(true){
             System.out.println(s);
@@ -40,6 +40,19 @@ public class Sous
             }
         }
     }
+
+    public static int llegirInt(Scanner scanner, String s, int min, int max ) {
+        int numero;
+        while(true){
+            numero = llegirInt(scanner,s);
+            if (numero >= min && numero <= max){
+                return numero;
+            }else{
+                System.out.println("ERROR: Si us plau, introdueixi un número entre " + min + " i " + max+".");
+            }
+        }
+    }
+
 
     /**
     *Funció perllegir doubles de manera segura
